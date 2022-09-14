@@ -1,31 +1,22 @@
 import React from "react"
 import Store from "./Store"
 
-function StoreList() {
+function StoreList({ stores }) {
 
-
-    return(
-        <table>
-            <tbody>
-                <tr>
-                    <th className="row-name">
-                        Name
-                    </th>
-                    <th>
-                        Image
-                    </th>
-                    <th>
-                        Season
-                    </th>
-                    <th>
-                        Episode
-                    </th>
-                </tr>
-                {/** Render a list of <Store> components here. */}
-            </tbody>
-        
-        </table>
-    );
+    const storeComps = stores.map(store => <Store key={store.id} store={store}/>)
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <th className="row-name">Name</th>
+          <th>Image</th>
+          <th>Season</th>
+          <th>Episode</th>
+        </tr>
+        {storeComps}
+      </tbody>
+    </table>
+  )
 }
 
-export default StoreList;
+export default StoreList
